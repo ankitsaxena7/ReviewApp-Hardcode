@@ -1,0 +1,33 @@
+{% extends 'userReview/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-6" style="border: 1px solid rgb(139, 124, 124); padding: 15px; margin-top: 50px;">
+            <form action="{% url 'signIn' %}" method="POST">
+              {% csrf_token %}
+                <h5 style="text-align: center;">Sign-In</h5>
+                <hr>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="inputEmail4">Email</label>
+                      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="inputPassword4">Password</label>
+                      <input type="password" name="password" class="form-control" id="inputPassword4" placeholder="Password">
+                    </div>
+                </div>
+                <button type="submit" name="submit" class="btn btn-info mx-auto" style="width: 540px; " style="text-align: center;">Login</button>
+              </form>
+              <div class="alert alert-light" role="alert" style="text-align: center;">
+                {{msginvalid}}
+              </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
