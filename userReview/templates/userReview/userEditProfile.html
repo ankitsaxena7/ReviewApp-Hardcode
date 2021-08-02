@@ -1,0 +1,92 @@
+{% extends 'userReview/base.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="main-body" style="margin-top: 50px;">
+          <div class="row gutters-sm">
+            <div class="col-md-2 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>{{valueShow.first_name}} {{valueShow.last_name}}</h4>
+                      <button class="btn btn-outline-primary">Message</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <div class="card-body">
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <h6 class="mb-0">First Name</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" name="first_name" value="{{valueShow.first_name}}" class="form-control">
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <h6 class="mb-0">Last Name</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="text" name="last_name" value="{{valueShow.last_name}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <h6 class="mb-0">Email</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="email" name="email" value="{{valueShow.email}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <h6 class="mb-0">Password</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <input type="password" value="{{valueShow.password}}" name="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-3">
+                            <h6 class="mb-0">Gender</h6>
+                          </div>
+                          <div class="col-sm-9 text-secondary">
+                              <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="gender" value="Male" {% if valueShow.gender == 'Male' %} checked {% endif %}>
+                                  <label class="form-check-label" for="inlineRadio1">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                  <input class="form-check-input" type="radio" name="gender" value="Female" {% if valueShow.gender == 'Female' %} checked {% endif %}>
+                                  <label class="form-check-label" for="inlineRadio2">Female</label>
+                                </div>
+                          </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                          <div class="col-sm-12">
+                            <button type="submit" name="submit">Update</button>
+                          </div>
+                        </div>
+                      </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+    </div>
+
+{% endblock %}

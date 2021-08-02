@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
     <title>Document</title>
@@ -22,28 +23,39 @@
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signUp">SignUp</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signIn">SignIn</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
+          <form class="form-inline mr-auto">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           </form>
+
+          <li class="nav-item active navbar-nav">
+            <a class="nav-link" href="{% url 'reviewDashboard' %}">Dashboard <span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+
+          <li class="nav-item dropdown navbar-nav ">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{% url 'userProfile' %}">Profile</a>
+              <a class="dropdown-item" href="{% url 'logOut' %}">Logout</a>
+            </div>
+          </li>
+
+      
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signUp' %}">SignUp</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signIn' %}">SignIn</a>
+        </li>
+      </ul>
+          
+         
+
         </div>
     </nav>
 
@@ -51,6 +63,9 @@
 
 {% endblock %}
 
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/propper.js.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
 
 </body>
 </html>
