@@ -1,5 +1,23 @@
 {% extends 'userReview/base.html' %}
-
+{% load static %}
 {% block content %}
+
+
+
+<table>
+    <tr>
+        <th>Rating</th>
+        ...
+        <th>Reviewto</th>
+    </tr>
+    {% for item in reviewcol %}
+    <tr> 
+        <td>{{ item.rating }}</td>
+        ...
+        <td>{{ item.reviewto }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
 
 {% endblock %}

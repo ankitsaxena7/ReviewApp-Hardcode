@@ -9,7 +9,12 @@ from django.utils import timezone
 
 # Create your views here.
 def index(request):
-    return render(request, 'userReview/index.html')
+    
+    review = Review.objects.all()
+    reviewcol = Review.objects.values('rating', 'reviewto')
+    context = {'review': review,
+               'reviewcol': reviewcol,}
+    return render(request, 'userReview/index.html', context)
 
 
 
