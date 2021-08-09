@@ -67,7 +67,7 @@ $(document).ready(function(){
                             <option value="other" {% if editValues.reviewto == 'other' %} selected {% endif %}>Other</option>
                         </select>
                         <div class="form-row other box mt-3">
-                            <input name="textother" class="form-control" placeholder="Write a Other Company">
+                            <input name="textother" value="{{editValues.reviewto}}" {% if editValues.reviewto == 'other' %} selected {% endif %} type="text" class="form-control" placeholder="Write a Other Company">
                         </div>
                     </div>
                 </div>
@@ -75,7 +75,7 @@ $(document).ready(function(){
                     <div class="col-lg-12">
                         <div class="form-group">
                             <label for="inputEmail4">Description</label>
-                            <textarea  name="reviewdesc" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea  name="reviewdesc" value="{{editValues.reviewdesc}}" class="form-control" id="exampleFormControlTextarea1" rows="3">{{editValues.reviewdesc}}</textarea>
                         </div>
                     </div>
                 </div>
